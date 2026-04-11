@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>TEI-XML encoding project portfolio — L'Albatros </title>
+                <respStmt>
+                    <resp>encoding by</resp>
+                    <name>Joséphine Maire</name>
+                </respStmt>
+            </titleStmt>
+            <publicationStmt>
+                <publisher>Gallimard</publisher>
+                <authority>Claude Pichois</authority>
+                <pubPlace>Paris</pubPlace>
+                <date when="2005"/>
+            </publicationStmt>
+            <sourceDesc>
+                <biblStruct>
+                    <monogr>
+                        <editor>Gallimard</editor>
+                        <title><hi rend ="italique"> Les Fleurs du Mal </hi> </title>
+                        <imprint>
+                            <pubPlace>Saint-Amand</pubPlace>
+                            <publisher>CPI Bussière</publisher>
+                            <date>2005</date>
+                        </imprint>
+                    </monogr>
+                </biblStruct>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <projectDesc>
+                <p> Editing in TEI-XML the poem <hi rend ="italique"> L'Albatros </hi> written by Charles Baudelaire</p>
+            </projectDesc>
+            <metDecl xml:id="alexandrin" pattern="12">
+                <p>Classical metrical schema made of alexandrines</p>
+            </metDecl>
+        </encodingDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <lg type="stanza">
+                <lg type="quatrain" rhyme="abab">
+                    <l n="1" met="alexandrin">Souvent, pour s'amuser, les hommes d'équip<rhyme label="a">ages</rhyme></l>
+                    <l n="2" met="alexandrin">Prennent des albatros, vastes oiseaux des <rhyme label="b">mers,</rhyme></l>
+                    <l n="3" met="alexandrin">Qui suivent, indolents compagnons de voy<rhyme label ="a">age,</rhyme></l>
+                    <l n="4" met="alexandrin">Le navire glissant sur les gouffres a<rhyme label="b">mers.</rhyme></l>  
+                </lg>
+            </lg>
+            <lg type="stanza">
+                <lg type="quatrain" rhyme="abab">
+                    <l n="5" met="alexandrin">A peine les ont-ils déposés sur les pl<rhyme label="a">anches,</rhyme></l>
+                    <l n="6" met="alexandrin">Que ces rois de l'azur, maladroits et hont<rhyme label="b">eux,</rhyme></l>
+                    <l n="7" met="alexandrin">Laissent piteusement leurs grandes ailes bl<rhyme label="a">anches</rhyme></l>
+                    <l n="8" met="alexandrin">Comme des avirons traîner à côté d'<rhyme label="b">eux.</rhyme></l>   
+                </lg>
+            </lg>
+            <lg type="stanza">
+                <lg type="quatrain" rhyme="abab">
+                    <l n="9" met="alexandrin">Ce voyageur ailé, comme il est gauche et v<rhyme label="a">eule!</rhyme></l>
+                    <l n="10" met="alexandrin">Lui, naguère si beau, qu'il est comique et l<rhyme label="b">aid!</rhyme></l>
+                    <l n="11" met="alexandrin">L'un agace son bec avec un brûle-gu<rhyme label="a">eule,</rhyme></l>
+                    <l n="12" met="alexandrin">L'autre mime, en boitant l'infirme qui vol<rhyme label="b">ait!</rhyme></l>  
+                </lg>
+            </lg>
+            <lg type="stanza">
+                <lg type="quatrain" rhyme="abab">
+                    <l n="13" met="alexandrin">Le Poète est semblable au prince des n<rhyme label ="a">uées</rhyme></l>
+                    <l n="14" met="alexandrin">Qui hante la tempête et se rit de l'<rhyme label ="b">archer,</rhyme></l>
+                    <l n="15" met="alexandrin">Exilé sur le sol au milieu des h<rhyme label ="a">uées,</rhyme></l>
+                    <l n="16" met="alexandrin">Ses ailes de géant l'êmpêchent de m<rhyme label ="b">archer.</rhyme></l>
+                </lg>
+            </lg>
+        </body>
+    </text>
+</TEI>
