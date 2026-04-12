@@ -8,7 +8,7 @@
     <xsl:output method="html" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
     
     <!--variables-->
-    <xsl:variable name="auteur" select="'Charles Baudelaire'"/>
+    <xsl:variable name="auteur" select="'Charles Baudelaire'"/><!--variable utilisée comme réserve d'information à propos de l'auteur. déclare et appelle l'auteur comme une étiquette. Si l'auteur change, cela modifie son nom pour toutes les pages du site -->
     <xsl:variable name="titre_site" select="normalize-space(//tei:titleStmt/tei:title[1])"/><!--utilisation de la fonction XPath normalize space pour nettoyer le titre des espaces non voulus--><!--utilisation du prédicat [1] pour filtrer les titres en ne prenant que le 1er-->
     <xsl:variable name="chemin_css" select="'style.css'"/>
     
@@ -89,7 +89,7 @@
     
     <xsl:template match="tei:lg">
         <div class="strophe">
-            <xsl:if test="@type">
+            <xsl:if test="@type"><!--utilisation d'une règle avec une condition. le xsl:if teste si la strophe a un attribut (par exemple un quatrain) avant de lui appliquer le style CSS. Si le type existe, on applique la fonction concat qui permet de fabriquer un nom de classe combiné.-->
                 <xsl:attribute name="class"><xsl:value-of select="concat('strophe ', @type)"/></xsl:attribute><!--utilisation de la fonction Xpath concat pour fusionner plusieurs morceaux de texte pour n'en faire qu'un seul-->
             </xsl:if>
             <xsl:apply-templates/>
@@ -114,9 +114,26 @@
             <body>
                 <header>
                     <nav><!--navigation dans le site-->
-                        <a href="index.html">Accueil - Contexte artistique et littéraire des Fleurs du Mal</a> | 
-                        <a href="poeme.html">Un poème emblématique du recueil, l'Albatros</a> | 
-                        <a href="analyse.html">l'albatros, métaphore du poète chez Baudelaire</a>
+                        <a href="index.html">
+                            <xsl:if test="$page_title = 'Accueil - Contexte artistique et littéraire des Fleurs du Mal'">
+                                <xsl:attribute name="class">page-active</xsl:attribute>
+                            </xsl:if><!--règle qui va permettre de passer à un menu de navigation intelligent. Cette règle permet d'identifier la page active dans le menu en injectant dynamiquement une classe CSS (class="page-active") uniquement lorsque le titre de la page en cours de lecture correspond à un lien  de navigation.-->
+                            Accueil - Contexte artistique et littéraire des Fleurs du Mal
+                        </a> | 
+                        
+                        <a href="poeme.html">
+                            <xsl:if test="$page_title = 'Un poème emblématique du recueil, l''Albatros'">
+                                <xsl:attribute name="class">page-active</xsl:attribute>
+                            </xsl:if>
+                            Un poème emblématique du recueil, l'Albatros
+                        </a> | 
+                        
+                        <a href="analyse.html">
+                            <xsl:if test="$page_title = 'l''albatros, métaphore du poète chez Baudelaire'">
+                                <xsl:attribute name="class">page-active</xsl:attribute>
+                            </xsl:if>
+                            l'albatros, métaphore du poète chez Baudelaire
+                        </a>
                     </nav>
                 </header>
                 
@@ -125,7 +142,7 @@
                 </main>
                 
                 <footer>
-                    <p>Mini-site littéraire - M2 TNAH - Joséphine Maire - <xsl:value-of select="$auteur"/></p>
+                    <p>Mini-site littéraire sur l'Albatros de <xsl:value-of select="$auteur"/> - Master 2 TNAH - Joséphine Maire</p>
                 </footer>
             </body>
         </html>
