@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:tei="http://www.tei-c.org/ns/1.0"
+    xmlns="http://www.w3.org/1999/xhtml"
     exclude-result-prefixes="tei"
     version="2.0">
     
@@ -71,10 +72,30 @@
         </xsl:result-document>
     </xsl:template>
     
-    <xsl:template match="tei:p"><p><xsl:apply-templates/></p></xsl:template>
-    <xsl:template match="tei:term"><span class="{substring-after(@ref, '#')}"><xsl:apply-templates/></span></xsl:template>
-    <xsl:template match="tei:lg[@type='quatrain']"><div class="quatrain"><xsl:apply-templates/></div></xsl:template>
-    <xsl:template match="tei:l"><p class="vers"><xsl:apply-templates/></p></xsl:template>
+    <xsl:template match="tei:p">
+        <p><xsl:apply-templates/></p>
+    </xsl:template>
+
+    <xsl:template match="tei:term">
+        <span class="{substring-after(@ref, '#')}">
+            <xsl:apply-templates/>
+        </span>
+    </xsl:template>
+
+    <xsl:template match="tei:lg">
+        <div class="strophe">
+            <xsl:if test="@type">
+                <xsl:attribute name="class"><xsl:value-of select="concat('strophe ', @type)"/></xsl:attribute>
+            </xsl:if>
+            <xsl:apply-templates/>
+        </div>
+    </xsl:template>
+
+    <xsl:template match="tei:l">
+        <p class="vers">
+            <xsl:apply-templates/>
+        </p>
+    </xsl:template>
     
     <xsl:template name="layout">
         <xsl:param name="page_title"/>
@@ -93,11 +114,16 @@
                         <a href="analyse.html">l'albatros, métaphore du poète chez Baudelaire</a>
                     </nav>
                 </header>
-                <main><xsl:copy-of select="$body_content"/></main>
+                
+                <main>
+                    <xsl:copy-of select="$body_content"/>
+                </main>
+                
                 <footer>
-                    <p>Mini-site littéraire sur l'Albatros de Baudelaire, Joséphine Maire, M2 TNAH - <xsl:value-of select="$auteur"/></p>
+                    <p>Mini-site littéraire - M2 TNAH - Joséphine Maire - <xsl:value-of select="$auteur"/></p>
                 </footer>
             </body>
         </html>
     </xsl:template>
+
 </xsl:stylesheet>
