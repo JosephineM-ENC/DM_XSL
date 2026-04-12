@@ -54,6 +54,13 @@
                         <title>Les Fleurs du Mal - Les Essentiels</title>
                         <ptr target="https://essentiels.bnf.fr/fr/article/e0e681e1-09a5-41e5-9800-beb77e313582-fleurs-mal"/>
                     </bibl>
+                    <bibl type="sitographie" xml:id="ref_bac_francais">
+                         <title>L'albatros - Charles Baudelaire - Les Fleurs du mal</title>
+                         <publisher>bacdefrancais.net</publisher>
+                          <date when="2026">2026</date>
+                          <ptr target="https://www.bacdefrancais.net/albatros-baud.php"/>
+                          <note>Commentaire composé et analyse linéaire du poème.</note>
+                        </bibl>
                 </listBibl>
             </sourceDesc>
         </fileDesc>
