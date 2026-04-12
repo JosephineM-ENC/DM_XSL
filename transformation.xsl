@@ -7,17 +7,21 @@
     
     <xsl:output method="html" indent="yes" encoding="UTF-8" omit-xml-declaration="yes"/>
     
+    <!--variables-->
     <xsl:variable name="auteur" select="'Charles Baudelaire'"/>
+    <xsl:variable name="titre_site" select="normalize-space(//tei:titleStmt/tei:title[1])"/><!--utilisation de la fonction XPath normalize space pour nettoyer le titre des espaces non voulus--><!--utilisation du prédicat [1] pour filtrer les titres en ne prenant que le 1er-->
     <xsl:variable name="chemin_css" select="'style.css'"/>
     
+    <!--règle racine-->
     <xsl:template match="/">
         
+        <!--Page 1 du site : index.html-->
         <xsl:result-document href="index.html" method="html">
             <xsl:call-template name="layout">
                 <xsl:with-param name="page_title" select="'Accueil - Contexte artistique et littéraire des Fleurs du Mal'"/>
                 <xsl:with-param name="body_content">
                     <section class="page-accueil">
-                        <h1><xsl:value-of select="upper-case('Les Fleurs du Mal')"/></h1>
+                        <h1><xsl:value-of select="upper-case('Les Fleurs du Mal')"/></h1><!--utilisation de la fonction XPath upper case mettant en majuscules le titre-->
                         <article>
                             <h3>Contexte de parution</h3>
                             <p>« Dans ce livre atroce, j’ai mis toute ma pensée, tout mon cœur, toute ma religion, toute ma haine » confiait Baudelaire à propos des Fleurs du Mal. Publié en 1857 par l’éminent chartiste Auguste Poulet-Malassis, le recueil est immédiatement condamné pour « outrage à la morale publique ». Pour l'édition de 1861, Baudelaire recompose l'œuvre, remplaçant les pièces censurées par de nouveaux poèmes comme les « Tableaux parisiens » qui exposent sa vision de la modernité. Sa réhabilitation officielle n'aura lieu qu'en 1949.</p>
@@ -36,18 +40,19 @@
             </xsl:call-template>
         </xsl:result-document>
         
+        <!--Page 2 du site : poeme.html-->
         <xsl:result-document href="poeme.html" method="html">
             <xsl:call-template name="layout">
                 <xsl:with-param name="page_title" select="'Un poème emblématique du recueil, l''Albatros'"/>
                 <xsl:with-param name="body_content">
                     <h2>Un poème emblématique du recueil, <em>l'Albatros</em></h2>
                     <article class="poeme-texte">
-                        <xsl:apply-templates select="//tei:text/tei:body"/>
-                    </article>
+                        <xsl:apply-templates select="//tei:body[@type='poeme']"/></article><!--utilisation du prédicat [@type='poeme'] pour filtrer dans le body en ne gardant que celui dont l'attribut type a la valeur poeme. Il ne sélectionne que le poème et pas les autres textes-->
                 </xsl:with-param>
             </xsl:call-template>
         </xsl:result-document>
         
+        <!--Page 3 du site : analyse.html-->
         <xsl:result-document href="analyse.html" method="html">
             <xsl:call-template name="layout">
                 <xsl:with-param name="page_title" select="'l''albatros, métaphore du poète chez Baudelaire'"/>
@@ -75,22 +80,22 @@
     <xsl:template match="tei:p">
         <p><xsl:apply-templates/></p>
     </xsl:template>
-
+    
     <xsl:template match="tei:term">
-        <span class="{substring-after(@ref, '#')}">
+        <span class="{substring-after(@ref, '#')}"><!--utilisation de la fonction XPath substring after qui transforme l'attribut TEI en classe CSS-->
             <xsl:apply-templates/>
         </span>
     </xsl:template>
-
+    
     <xsl:template match="tei:lg">
         <div class="strophe">
             <xsl:if test="@type">
-                <xsl:attribute name="class"><xsl:value-of select="concat('strophe ', @type)"/></xsl:attribute>
+                <xsl:attribute name="class"><xsl:value-of select="concat('strophe ', @type)"/></xsl:attribute><!--utilisation de la fonction Xpath concat pour fusionner plusieurs morceaux de texte pour n'en faire qu'un seul-->
             </xsl:if>
             <xsl:apply-templates/>
         </div>
     </xsl:template>
-
+    
     <xsl:template match="tei:l">
         <p class="vers">
             <xsl:apply-templates/>
@@ -108,7 +113,7 @@
             </head>
             <body>
                 <header>
-                    <nav>
+                    <nav><!--navigation dans le site-->
                         <a href="index.html">Accueil - Contexte artistique et littéraire des Fleurs du Mal</a> | 
                         <a href="poeme.html">Un poème emblématique du recueil, l'Albatros</a> | 
                         <a href="analyse.html">l'albatros, métaphore du poète chez Baudelaire</a>
@@ -125,5 +130,5 @@
             </body>
         </html>
     </xsl:template>
-
+    
 </xsl:stylesheet>
