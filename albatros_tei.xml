@@ -17,60 +17,79 @@
                 <date when="2005"/>
             </publicationStmt>
             <sourceDesc>
-                <biblStruct>
+                <biblStruct xml:id="pichois2005">
                     <monogr>
-                        <editor>Gallimard</editor>
-                        <title><hi rend ="italique"> Les Fleurs du Mal </hi> </title>
+                        <editor>Claude Pichois</editor>
+                        <title level="m">Les Fleurs du Mal</title>
                         <imprint>
-                            <pubPlace>Saint-Amand</pubPlace>
-                            <publisher>CPI Bussière</publisher>
+                            <publisher>Gallimard</publisher>
+                            <pubPlace>Paris</pubPlace>
                             <date>2005</date>
                         </imprint>
                     </monogr>
                 </biblStruct>
+                <listBibl>
+                    <bibl type="livre" xml:id="Ossola">
+                        <author>Ossola, C.</author>
+                        <date>2021</date>
+                        <title>Les 100 mots de Baudelaire</title>
+                        <publisher>PUF</publisher>
+                    </bibl>
+                    <bibl type="livre" xml:id="LM">
+                        <author>Lagarde, A. et Michard, L.</author>
+                        <date>2020</date>
+                        <title>XIXe Siècle</title>
+                        <publisher>Bordas</publisher>
+                    </bibl>
+                    <bibl type="video" xml:id="Mock">
+                        <author>Le Mock</author>
+                        <date>2016, 27 septembre</date>
+                        <title>Pourquoi Baudelaire écrit-il de la poésie ?</title>
+                        <publisher>YouTube</publisher>
+                        <ptr target="https://www.youtube.com/watch?v=S2fF_Xp_E6o"/>
+                    </bibl>
+                    <bibl type="site" xml:id="BNF">
+                        <author>BnF</author>
+                        <date>s.d.</date>
+                        <title>Les Fleurs du Mal - Les Essentiels</title>
+                        <ptr target="https://essentiels.bnf.fr/fr/article/e0e681e1-09a5-41e5-9800-beb77e313582-fleurs-mal"/>
+                    </bibl>
+                </listBibl>
             </sourceDesc>
         </fileDesc>
-        <encodingDesc>
-            <projectDesc>
-                <p> Editing in TEI-XML the poem <hi rend ="italique"> L'Albatros </hi> written by Charles Baudelaire</p>
-            </projectDesc>
-            <metDecl xml:id="alexandrin" pattern="12">
-                <p>Classical metrical schema made of alexandrines</p>
-            </metDecl>
-        </encodingDesc>
     </teiHeader>
     <text>
         <body>
             <lg type="stanza">
                 <lg type="quatrain" rhyme="abab">
-                    <l n="1" met="alexandrin">Souvent, pour s'amuser, les hommes d'équip<rhyme label="a">ages</rhyme></l>
-                    <l n="2" met="alexandrin">Prennent des albatros, vastes oiseaux des <rhyme label="b">mers,</rhyme></l>
-                    <l n="3" met="alexandrin">Qui suivent, indolents compagnons de voy<rhyme label ="a">age,</rhyme></l>
-                    <l n="4" met="alexandrin">Le navire glissant sur les gouffres a<rhyme label="b">mers.</rhyme></l>  
+                    <l n="1">Souvent, pour s'amuser, les hommes d'équipages</l>
+                    <l n="2">Prennent des <term ref="#oiseau">albatros</term>, <term ref="#oiseau">vastes oiseaux des mers</term>,</l>
+                    <l n="3">Qui suivent, indolents compagnons de voyage,</l>
+                    <l n="4">Le navire glissant sur les gouffres amers.</l>  
                 </lg>
             </lg>
             <lg type="stanza">
                 <lg type="quatrain" rhyme="abab">
-                    <l n="5" met="alexandrin">A peine les ont-ils déposés sur les pl<rhyme label="a">anches,</rhyme></l>
-                    <l n="6" met="alexandrin">Que ces rois de l'azur, maladroits et hont<rhyme label="b">eux,</rhyme></l>
-                    <l n="7" met="alexandrin">Laissent piteusement leurs grandes ailes bl<rhyme label="a">anches</rhyme></l>
-                    <l n="8" met="alexandrin">Comme des avirons traîner à côté d'<rhyme label="b">eux.</rhyme></l>   
+                    <l n="5">A peine les ont-ils déposés sur les planches,</l>
+                    <l n="6">Que ces <term ref="#oiseau">rois de l'azur</term>, maladroits et honteux,</l>
+                    <l n="7">Laissent piteusement leurs <term ref="#oiseau">grandes ailes blanches</term></l>
+                    <l n="8">Comme des avirons traîner à côté d'eux.</l>   
                 </lg>
             </lg>
             <lg type="stanza">
                 <lg type="quatrain" rhyme="abab">
-                    <l n="9" met="alexandrin">Ce voyageur ailé, comme il est gauche et v<rhyme label="a">eule!</rhyme></l>
-                    <l n="10" met="alexandrin">Lui, naguère si beau, qu'il est comique et l<rhyme label="b">aid!</rhyme></l>
-                    <l n="11" met="alexandrin">L'un agace son bec avec un brûle-gu<rhyme label="a">eule,</rhyme></l>
-                    <l n="12" met="alexandrin">L'autre mime, en boitant l'infirme qui vol<rhyme label="b">ait!</rhyme></l>  
+                    <l n="9">Ce <term ref="#oiseau">voyageur ailé</term>, comme il est gauche et veule!</l>
+                    <l n="10">Lui, naguère si beau, qu'il est comique et laid!</l>
+                    <l n="11">L'un agace son bec avec un brûle-gueule,</l>
+                    <l n="12">L'autre mime, en boitant l'infirme qui volait!</l>  
                 </lg>
             </lg>
             <lg type="stanza">
                 <lg type="quatrain" rhyme="abab">
-                    <l n="13" met="alexandrin">Le Poète est semblable au prince des n<rhyme label ="a">uées</rhyme></l>
-                    <l n="14" met="alexandrin">Qui hante la tempête et se rit de l'<rhyme label ="b">archer,</rhyme></l>
-                    <l n="15" met="alexandrin">Exilé sur le sol au milieu des h<rhyme label ="a">uées,</rhyme></l>
-                    <l n="16" met="alexandrin">Ses ailes de géant l'êmpêchent de m<rhyme label ="b">archer.</rhyme></l>
+                    <l n="13">Le <term ref="#poete">Poète</term> est semblable au <term ref="#oiseau">prince des nuées</term></l>
+                    <l n="14">Qui hante la tempête et se rit de l'archer,</l>
+                    <l n="15">Exilé sur le sol au milieu des huées,</l>
+                    <l n="16">Ses <term ref="#poete">ailes de géant</term> l'empêchent de marcher.</l>
                 </lg>
             </lg>
         </body>
