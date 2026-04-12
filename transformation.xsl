@@ -15,13 +15,19 @@
             <xsl:call-template name="layout">
                 <xsl:with-param name="page_title" select="'Accueil - Contexte artistique et littéraire des Fleurs du Mal'"/>
                 <xsl:with-param name="body_content">
-                    <section>
-                        <h1><xsl:value-of select="upper-case('L''Albatros')"/></h1>
-                        <h2>Accueil - Contexte artistique et littéraire des Fleurs du Mal</h2>
+                    <section class="page-accueil">
+                        <h1><xsl:value-of select="upper-case('Les Fleurs du Mal')"/></h1>
                         
-                        <p>Édition critique basée sur le texte de <xsl:value-of select="substring(//tei:publicationStmt/tei:date/@when, 1, 4)"/>.</p>
+                        <article>
+                            <h3>Contexte de parution</h3>
+                            <p>« Dans ce livre atroce... » Publié en 1857...</p>
+                        </article>
                         
-                        <p><strong>Forme du poème :</strong> L'œuvre se structure autour de <xsl:value-of select="count(//tei:lg[@type='quatrain'])"/> quatrains, .</p>
+                        <aside class="infos-edition">
+                            <hr/>
+                            <p>Édition basée sur le texte de <xsl:value-of select="substring(//tei:publicationStmt/tei:date/@when, 1, 4)"/>.</p>
+                            <p>Structure : le poème comporte <xsl:value-of select="count(//tei:lg[@type='quatrain'])"/> quatrains.</p>
+                        </aside>
                     </section>
                 </xsl:with-param>
             </xsl:call-template>
@@ -43,39 +49,51 @@
             <xsl:call-template name="layout">
                 <xsl:with-param name="page_title" select="'l''albatros, métaphore du poète chez Baudelaire'"/>
                 <xsl:with-param name="body_content">
-                    <h2>l'albatros, métaphore du poète chez Baudelaire</h2>
                     
-                    <section class="analyse">
-                        <h3>Index sémantique</h3>
-                        <xsl:for-each select="//tei:term">
-                            <div class="terme">
-                                <strong><xsl:value-of select="normalize-space(.)"/></strong>
-                                <xsl:choose>
-                                    <xsl:when test="@ref='#oiseau'"> : Figure de l'oiseau.</xsl:when>
-                                    <xsl:when test="@ref='#poete'"> : Figure du poète.</xsl:when>
-                                </xsl:choose>
-                            </div>
-                        </xsl:for-each>
-                    </section>
-                    
-                    <section class="bibliographie">
-                        <hr/>
-                        <h3>Bibliographie</h3>
-                        <ul>
-                            <xsl:for-each select="//tei:listBibl/tei:bibl">
-                                <xsl:sort select="tei:author"/>
-                                <li>
-                                    <strong><xsl:value-of select="tei:author"/></strong>
-                                    <xsl:text> (</xsl:text><xsl:value-of select="tei:date"/><xsl:text>). </xsl:text>
-                                    <span style="font-style: italic;"><xsl:value-of select="tei:title"/></span>
-                                    <xsl:choose>
-                                        <xsl:when test="@type='video'"> [Vidéo]. YouTube. <xsl:value-of select="tei:ptr/@target"/></xsl:when>
-                                        <xsl:when test="@type='site'"> [En ligne]. BnF. <xsl:value-of select="tei:ptr/@target"/></xsl:when>
-                                        <xsl:otherwise>. <xsl:value-of select="tei:publisher"/>.</xsl:otherwise>
-                                    </xsl:choose>
-                                </li>
-                            </xsl:for-each>
-                        </ul>
+                    <article class="content-section">
+                        <h2>Analyse de l'œuvre</h2>
+                        <section class="intro">
+                            <h3>Introduction</h3>
+                            <p>Le poème <em>L'Albatros</em> fonctionne comme une parabole...</p>
+                        </section>
+                        </article>
+
+                    <hr/>
+
+                    <section class="references">
+                        <h2>Bibliographie et Sitographie (APA 7)</h2>
+                        
+                        <div class="biblio">
+                            <h3>Bibliographie (Livres)</h3>
+                            <ul class="apa-style">
+                                <xsl:for-each select="//tei:bibl[@type='livre'] | //tei:biblStruct">
+                                    <xsl:sort select=".//tei:author | .//tei:editor"/>
+                                    <li>
+                                        <xsl:choose>
+                                            <xsl:when test="tei:author"><xsl:value-of select="tei:author"/></xsl:when>
+                                            <xsl:otherwise><xsl:value-of select=".//tei:editor"/> (Éd.)</xsl:otherwise>
+                                        </xsl:choose>
+                                        <xsl:text> (</xsl:text><xsl:value-of select=".//tei:date"/><xsl:text>). </xsl:text>
+                                        <span class="italic-title"><xsl:value-of select=".//tei:title"/></span>. 
+                                        <xsl:text> </xsl:text><xsl:value-of select=".//tei:publisher"/>.
+                                    </li>
+                                </xsl:for-each>
+                            </ul>
+                        </div>
+
+                        <div class="sito">
+                            <h3>Ressources multimédias</h3>
+                            <h4>Vidéos</h4>
+                            <ul class="apa-style">
+                                <xsl:for-each select="//tei:bibl[@type='video']">
+                                    <li>
+                                        <xsl:value-of select="tei:author"/> (<xsl:value-of select="tei:date"/>). 
+                                        <em><xsl:value-of select="tei:title"/></em> [Vidéo]. 
+                                        <br/><a href="{tei:ptr/@target}"><xsl:value-of select="tei:ptr/@target"/></a>
+                                    </li>
+                                </xsl:for-each>
+                            </ul>
+                        </div>
                     </section>
                 </xsl:with-param>
             </xsl:call-template>
@@ -92,10 +110,6 @@
         <div class="quatrain"><xsl:apply-templates/></div>
     </xsl:template>
     
-    <xsl:template match="tei:l[@n='1']">
-        <p class="vers-initial"><xsl:apply-templates/></p>
-    </xsl:template>
-    
     <xsl:template match="tei:l">
         <p class="vers"><xsl:apply-templates/></p>
     </xsl:template>
@@ -110,13 +124,19 @@
                 <link rel="stylesheet" href="{$chemin_css}"/>
             </head>
             <body>
-                <nav>
-                    <a href="index.html">Accueil</a> | 
-                    <a href="poeme.html">Le Poème</a> | 
-                    <a href="analyse.html">L'Analyse</a>
-                </nav>
-                <main><xsl:copy-of select="$body_content"/></main>
-                <footer><p>Mini-site littéraire sur l'Albatros de Baudelaire, Joséphine Maire, M2 TNAH- <xsl:value-of select="$auteur"/></p></footer>
+                <header>
+                    <nav>
+                        <a href="index.html">Accueil</a> | 
+                        <a href="poeme.html">Le Poème</a> | 
+                        <a href="analyse.html">L'Analyse</a>
+                    </nav>
+                </header>
+                <main>
+                    <xsl:copy-of select="$body_content"/>
+                </main>
+                <footer>
+                    <p>Mini-site littéraire - <xsl:value-of select="$auteur"/> - Joséphine Maire, M2 TNAH</p>
+                </footer>
             </body>
         </html>
     </xsl:template>
