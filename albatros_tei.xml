@@ -55,49 +55,41 @@
                         <ptr target="https://essentiels.bnf.fr/fr/article/e0e681e1-09a5-41e5-9800-beb77e313582-fleurs-mal"/>
                     </bibl>
                     <bibl type="sitographie" xml:id="ref_bac_francais">
-                         <title>L'albatros - Charles Baudelaire - Les Fleurs du mal</title>
-                         <publisher>bacdefrancais.net</publisher>
-                          <date when="2026">2026</date>
-                          <ptr target="https://www.bacdefrancais.net/albatros-baud.php"/>
-                          <note>Commentaire composé et analyse linéaire du poème.</note>
-                        </bibl>
+                        <title>L'albatros - Charles Baudelaire - Les Fleurs du mal</title>
+                        <publisher>bacdefrancais.net</publisher>
+                        <date when="2026">2026</date>
+                        <ptr target="https://www.bacdefrancais.net/albatros-baud.php"/>
+                        <note>Commentaire composé et analyse linéaire du poème.</note>
+                    </bibl>
                 </listBibl>
             </sourceDesc>
         </fileDesc>
     </teiHeader>
     <text>
-        <body type="poeme"> >
-            <lg type="stanza">
-                <lg type="quatrain" rhyme="abab">
-                    <l n="1">Souvent, pour s'amuser, les hommes d'équipages</l>
-                    <l n="2">Prennent des <term ref="#oiseau">albatros</term>, <term ref="#oiseau">vastes oiseaux des mers</term>,</l>
-                    <l n="3">Qui suivent, indolents compagnons de voyage,</l>
-                    <l n="4">Le navire glissant sur les gouffres amers.</l>  
-                </lg>
+        <body ana="poeme">
+            <lg n="1" type="quatrain" rhyme="abab">
+                <l n="1">Souvent, pour s'amuser, les hommes d'équipages</l>
+                <l n="2">Prennent des <term ref="#oiseau">albatros</term>, <term ref="#oiseau">vastes oiseaux des mers</term>,</l>
+                <l n="3">Qui suivent, indolents compagnons de voyage,</l>
+                <l n="4">Le navire glissant sur les gouffres amers.</l>  
             </lg>
-            <lg type="stanza">
-                <lg type="quatrain" rhyme="abab">
-                    <l n="5">A peine les ont-ils déposés sur les planches,</l>
-                    <l n="6">Que ces <term ref="#oiseau">rois de l'azur</term>, maladroits et honteux,</l>
-                    <l n="7">Laissent piteusement leurs <term ref="#oiseau">grandes ailes blanches</term></l>
-                    <l n="8">Comme des avirons traîner à côté d'eux.</l>   
-                </lg>
+            <lg n="2" type="quatrain" rhyme="abab">
+                <l n="5">A peine les ont-ils déposés sur les planches,</l>
+                <l n="6">Que ces <term ref="#oiseau">rois de l'azur</term>, maladroits et honteux,</l>
+                <l n="7">Laissent piteusement leurs <term ref="#oiseau">grandes ailes blanches</term></l>
+                <l n="8">Comme des avirons traîner à côté d'eux.</l>   
             </lg>
-            <lg type="stanza">
-                <lg type="quatrain" rhyme="abab">
-                    <l n="9">Ce <term ref="#oiseau">voyageur ailé</term>, comme il est gauche et veule!</l>
-                    <l n="10">Lui, naguère si beau, qu'il est comique et laid!</l>
-                    <l n="11">L'un agace son bec avec un brûle-gueule,</l>
-                    <l n="12">L'autre mime, en boitant l'infirme qui volait!</l>  
-                </lg>
+            <lg n="3" type="quatrain" rhyme="abab">
+                <l n="9">Ce <term ref="#oiseau">voyageur ailé</term>, comme il est gauche et veule!</l>
+                <l n="10">Lui, naguère si beau, qu'il est comique et laid!</l>
+                <l n="11">L'un agace son bec avec un brûle-gueule,</l>
+                <l n="12">L'autre mime, en boitant l'infirme qui volait!</l>  
             </lg>
-            <lg type="stanza">
-                <lg type="quatrain" rhyme="abab">
-                    <l n="13">Le <term ref="#poete">Poète</term> est semblable au <term ref="#oiseau">prince des nuées</term></l>
-                    <l n="14">Qui hante la tempête et se rit de l'archer,</l>
-                    <l n="15">Exilé sur le sol au milieu des huées,</l>
-                    <l n="16">Ses <term ref="#poete">ailes de géant</term> l'empêchent de marcher.</l>
-                </lg>
+            <lg n="4" type="quatrain" rhyme="abab">
+                <l n="13">Le <term ref="#poete">Poète</term> est semblable au <term ref="#oiseau">prince des nuées</term></l>
+                <l n="14">Qui hante la tempête et se rit de l'archer,</l>
+                <l n="15">Exilé sur le sol au milieu des huées,</l>
+                <l n="16">Ses <term ref="#poete">ailes de géant</term> l'empêchent de marcher.</l>
             </lg>
         </body>
     </text>
