@@ -1,0 +1,26 @@
+/* Base */
+body { font-family: 'Georgia', serif; line-height: 1.6; color: #2c3e50; max-width: 850px; margin: auto; padding: 30px; background-color: #f9f9f9; }
+
+/* Navigation */
+header { border-bottom: 3px solid #8b0000; margin-bottom: 30px; padding-bottom: 10px; }
+nav { text-align: center; }
+nav a { text-decoration: none; color: #8b0000; font-weight: bold; padding: 0 10px; }
+.page-active { color: #555 !important; text-decoration: underline !important; pointer-events: none; }
+.page-inactive:hover { color: #c0392b; }
+
+/* Contenu */
+h1, h2, h3 { color: #8b0000; text-transform: uppercase; letter-spacing: 1px; }
+section, article { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+
+/* Poème */
+.poeme-texte { background: #fffdf5; border-left: 5px solid #8b0000; font-style: italic; padding: 40px; margin: 20px 0; }
+.strophe { margin-bottom: 25px; display: block; }
+.vers { display: block; min-height: 1.2em; }
+
+/* Index et Biblio */
+.index-termes ul, .bibliographie-analyse ul { list-style: none; padding-left: 0; }
+.index-termes li { padding: 5px 0; border-bottom: 1px solid #eee; }
+strong { color: #c0392b; }
+
+/* Footer */
+footer { margin-top: 50px; padding-top: 20px; border-top: 1px solid #ccc; font-size: 0.9em; text-align: center; color: #7f8c8d; }
