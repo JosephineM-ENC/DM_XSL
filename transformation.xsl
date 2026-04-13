@@ -35,6 +35,9 @@
                             <h3>L’Albatros, un poème emblématique des Fleurs du Mal</h3>
                             <p>Placé en ouverture de « Spleen et Idéal », ce poème définit la mission de l’artiste : guérir l’âme de l’ennui par la création (Lagarde et Michard). Il illustre le déchirement entre l’Idéal (l’azur) et le Spleen (la chute). Le génie du poète est ici une force souveraine dans les hauteurs, mais une infirmité au sol. Inspiré d'un voyage maritime, ce portrait de l'oiseau captif consacre la figure du « poète maudit », dont la grandeur cause la solitude.</p>
                         </article>
+                        <p>
+                            <a href="poeme.html">Pour découvrir le texte intégral du poème</a>.<!--lien hypertexte permettant aux documents html de naviguer entre eux : page 1 à 2-->
+                        </p>
                     </section>
                 </xsl:with-param>
             </xsl:call-template>
@@ -46,8 +49,15 @@
                 <xsl:with-param name="page_title" select="'Un poème emblématique du recueil, l''Albatros'"/>
                 <xsl:with-param name="body_content">
                     <h2>Un poème emblématique du recueil, <em>l'Albatros</em></h2>
+                    
                     <article class="poeme-texte">
-                        <xsl:apply-templates select="//tei:body[@type='poeme']"/></article><!--utilisation du prédicat [@type='poeme'] pour filtrer dans le body en ne gardant que celui dont l'attribut type a la valeur poeme. Il ne sélectionne que le poème et pas les autres textes-->
+                        <xsl:apply-templates select="//tei:body[@type='poeme']"/>
+                    </article>
+                    
+                    <p style="margin-top:20px;">
+                        Si vous souhaitez en apprendre davantage sur ce poème : 
+                        <a href="analyse.html">consultez l'analyse détaillée de la métaphore de l'albatros</a>.<!--lien hypertexte permettant aux documents html de naviguer entre eux : page 2 à 3-->
+                    </p>
                 </xsl:with-param>
             </xsl:call-template>
         </xsl:result-document>
@@ -57,6 +67,7 @@
             <xsl:call-template name="layout">
                 <xsl:with-param name="page_title" select="'l''albatros, métaphore du poète chez Baudelaire'"/>
                 <xsl:with-param name="body_content">
+                    
                     <article class="content-section">
                         <h3>Introduction</h3>
                         <p>Le poème L'Albatros ne se contente pas de décrire une scène maritime ; il fonctionne comme une parabole qui définit l'existence même de l'artiste. À travers un réseau de personnifications, Baudelaire transforme l'oiseau en un "roi déchu", faisant du pont du navire le théâtre d'une tragédie sociale où le sacré est confronté à la vulgarité.</p>
@@ -69,9 +80,28 @@
                         <p>La métaphore centrale repose sur une analogie explicite révélée dans le quatrain final : « Le Poète est semblable au prince des nuées ».</p>
                         <p><strong>L'exil social :</strong> Comme l'albatros, le poète appartient à deux mondes irréconciliables. Dans les hauteurs, il domine les « tempêtes » de l'existence. Exilé sur le sol, il devient la proie des marins (représentant la foule vulgaire) qui transforment son sacré en comique.</p>
                         <p><strong>Le paradoxe des « ailes de géant » :</strong> Baudelaire souligne ici le paradoxe du génie. Ce qui fait la grandeur du poète dans l'Idéal devient la cause de son entrave dans le monde matériel. L'anacoluthe des deux derniers vers (« Exilé... ses ailes... ») accentue grammaticalement ce déchirement entre la réalité et l'idéal.</p>
+                        <section class="index-termes">
+                            <h3>Index des notions clés</h3>
+                            <p>Ce tableau répertorie les termes techniques balisés dans le texte source :</p>
+                            <ul>
+                                <xsl:for-each select="//tei:term"><!--1 règle avec boucle pour générer un index des termes importants-->
+                                    <xsl:sort select="." order="ascending"/>
+                                    
+                                    <li>
+                                        <strong><xsl:value-of select="upper-case(.)"/></strong> : 
+                                        identifié avec la référence <xsl:value-of select="@ref"/>
+                                    </li>
+                                </xsl:for-each>
+                            </ul>
+                        </section>
                         <h3>Conclusion</h3>
                         <p>Baudelaire scelle ici la figure du Poète Maudit, incompris par ses contemporains. Majestueux dans son élément mais ridicule au contact des hommes, l'artiste est un étranger dont le génie (les ailes) gêne l'intégration sociale. Sa grandeur est inséparable de sa solitude.</p>
                     </article>
+                    <hr/>
+                    <p>
+                        <a href="poeme.html">Pour relire le poème</a> <!--lien hypertexte permettant aux documents html de naviguer entre eux : page 3 à 2-->
+                        <a href="index.html">Pour retourner à l'accueil</a><!--lien hypertexte permettant aux documents html de naviguer entre eux : page 3 à 1-->
+                    </p>
                 </xsl:with-param>
             </xsl:call-template>
         </xsl:result-document>
@@ -97,10 +127,10 @@
     </xsl:template>
     
     <xsl:template match="tei:l">
-        <p class="vers">
+        <span class="vers">
             <xsl:apply-templates/>
-        </p>
-    </xsl:template>
+        </span>
+        <br/> </xsl:template>
     
     <xsl:template name="layout">
         <xsl:param name="page_title"/>
