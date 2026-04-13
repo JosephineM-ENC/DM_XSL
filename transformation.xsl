@@ -114,27 +114,36 @@
             <body>
                 <header>
                     <nav><!--navigation dans le site-->
-                        <a href="index.html">
-                            <xsl:if test="$page_title = 'Accueil - Contexte artistique et littéraire des Fleurs du Mal'">
-                                <xsl:attribute name="class">page-active</xsl:attribute>
-                            </xsl:if><!--règle qui va permettre de passer à un menu de navigation intelligent. Cette règle permet d'identifier la page active dans le menu en injectant dynamiquement une classe CSS (class="page-active") uniquement lorsque le titre de la page en cours de lecture correspond à un lien  de navigation.-->
-                            Accueil - Contexte artistique et littéraire des Fleurs du Mal
-                        </a> | 
-                        
-                        <a href="poeme.html">
-                            <xsl:if test="$page_title = 'Un poème emblématique du recueil, l''Albatros'">
-                                <xsl:attribute name="class">page-active</xsl:attribute>
-                            </xsl:if>
-                            Un poème emblématique du recueil, l'Albatros
-                        </a> | 
-                        
-                        <a href="analyse.html">
-                            <xsl:if test="$page_title = 'l''albatros, métaphore du poète chez Baudelaire'">
-                                <xsl:attribute name="class">page-active</xsl:attribute>
-                            </xsl:if>
-                            l'albatros, métaphore du poète chez Baudelaire
-                        </a>
-                    </nav>
+                            <a href="index.html">
+                                <xsl:attribute name="class">
+                                    <xsl:choose><!--Ici, utilisation d'une règle de  choix multiple avec xsl choose. Permet de prendre en compte plusieurs possibilité avec when otherwise, équivalent de si ... sinon. Le choix ici est de faire un visuel différent selon la page du menu dans laquelle on se trouve. -->
+                                        <xsl:when test="$page_title = 'Accueil - Contexte artistique et littéraire des Fleurs du Mal'">page-active</xsl:when>
+                                        <xsl:otherwise>page-inactive</xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:attribute>
+                                Accueil - Contexte artistique et littéraire des Fleurs du Mal
+                            </a> | 
+                            
+                            <a href="poeme.html">
+                                <xsl:attribute name="class">
+                                    <xsl:choose>
+                                        <xsl:when test="$page_title = 'Un poème emblématique du recueil, l''Albatros'">page-active</xsl:when>
+                                        <xsl:otherwise>page-inactive</xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:attribute>
+                                Un poème emblématique du recueil, l'Albatros
+                            </a> | 
+                            
+                            <a href="analyse.html">
+                                <xsl:attribute name="class">
+                                    <xsl:choose>
+                                        <xsl:when test="$page_title = 'l''albatros, métaphore du poète chez Baudelaire'">page-active</xsl:when>
+                                        <xsl:otherwise>page-inactive</xsl:otherwise>
+                                    </xsl:choose>
+                                </xsl:attribute>
+                                l'albatros, métaphore du poète chez Baudelaire
+                            </a>
+                        </nav>
                 </header>
                 
                 <main>
