@@ -94,12 +94,18 @@
                                 </xsl:for-each>
                             </ul>
                         </section>
+                        <section class="bibliographie-analyse">
+                            <h3>Sources et Bibliographie</h3>
+                            <ul>
+                                <xsl:apply-templates select="//tei:listBibl/tei:bibl"/>
+                            </ul>
+                        </section>
                         <h3>Conclusion</h3>
                         <p>Baudelaire scelle ici la figure du Poète Maudit, incompris par ses contemporains. Majestueux dans son élément mais ridicule au contact des hommes, l'artiste est un étranger dont le génie (les ailes) gêne l'intégration sociale. Sa grandeur est inséparable de sa solitude.</p>
                     </article>
                     <hr/>
                     <p>
-                        <a href="poeme.html">Pour relire le poème</a> <!--lien hypertexte permettant aux documents html de naviguer entre eux : page 3 à 2-->
+                        <a href="poeme.html">Pour relire le poème</a> | <!--lien hypertexte permettant aux documents html de naviguer entre eux : page 3 à 2-->
                         <a href="index.html">Pour retourner à l'accueil</a><!--lien hypertexte permettant aux documents html de naviguer entre eux : page 3 à 1-->
                     </p>
                 </xsl:with-param>
@@ -131,6 +137,9 @@
             <xsl:apply-templates/>
         </span>
         <br/> </xsl:template>
+    <xsl:template match="tei:bibl">
+        <li><xsl:apply-templates/></li>
+    </xsl:template>
     
     <xsl:template name="layout">
         <xsl:param name="page_title"/>
