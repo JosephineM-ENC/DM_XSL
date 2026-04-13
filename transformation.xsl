@@ -51,7 +51,7 @@
                     <h2>Un poème emblématique du recueil, <em>l'Albatros</em></h2>
                     
                     <article class="poeme-texte">
-                        <xsl:apply-templates select="//tei:body[@type='poeme']"/>
+                        <xsl:apply-templates select="//tei:body[@ana='poeme']"/>
                     </article>
                     
                     <p style="margin-top:20px;">
