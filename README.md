@@ -11,3 +11,10 @@ Le rendu attendu par le professeur est un projet indivuel présentant une feuill
 Mon projet consiste en la réalisation d'un petit site HTML d’analyse littéraire des *Fleurs du Mal* de Baudelaire, à travers l'exemple de *l'Albatros*. 
 Ce site a été réalisé pour mettre en valeur une feuille de style XSL transformant un document XML (issu du projet du cours de TEI) encodant le poème *l'Albatros* de Charles Baudelaire. 
 La transformation du document XML aura pour objectif de générer des pages HTML à l’aide d’une feuille XSLT afin de présenter le poème *l’Albatros*. 
+
+
+
+# Note sur l'utilisation de l'IA
+
+Le fichier style.css a été généré par Gemini pour éviter de reprendre la structure css des TD du cours.
+Je me suis également aidée de Gemini pour régler certaines erreurs persistantes et pour parvenir à faire une règle avec boucle. 
